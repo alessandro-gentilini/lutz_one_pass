@@ -3,3 +3,10 @@
 
 # Ignore development and IDE files
 **/.vscode
+
+# CMake related files
+**/CMakeCache.txt
+**/CMakeFiles
+**/*.cmake
+install_manifest.txt
+**/Makefile
