@@ -27,7 +27,7 @@
 #include "lutzOnePass.hpp"
 
 /************************************************************//**
- * Default constructor
+ * @brief Default constructor
  ****************************************************************/
 lutzOnePass::lutzOnePass() :
     m_image(nullptr),
@@ -39,7 +39,7 @@ lutzOnePass::lutzOnePass() :
 
 
 /************************************************************//**
- * Primary constructor from a vector
+ * @brief Primary constructor from a vector
  *
  * @param[in] image         1D vector containing image data
  * @param[in] xpixels       Number of pixels in x
@@ -56,7 +56,7 @@ lutzOnePass::lutzOnePass(double* image,
 
 
 /************************************************************//**
- * Destructor
+ * @brief Destructor
  ****************************************************************/
 lutzOnePass::~lutzOnePass()
 {
@@ -64,7 +64,7 @@ lutzOnePass::~lutzOnePass()
 
 
 /************************************************************//**
- * Run the analysis
+ * @brief Run the analysis
  ****************************************************************/
 void lutzOnePass::run()
 {
@@ -148,7 +148,7 @@ void lutzOnePass::run()
 
 
 /************************************************************//**
- * Start a new segment
+ * @brief Start a new segment
  *
  * @param[in] xindx         x-bin position along current row
  * @param[in] co            Current object ID
@@ -186,7 +186,7 @@ void lutzOnePass::StartSegment(int& xindx, int& co, int& pstop)
 
 
 /************************************************************//**
- * End a segment
+ * @brief End a segment
  *
  * @param[in] xindx         x-bin position along current row
  * @param[in] co            Current object ID
@@ -208,7 +208,7 @@ void lutzOnePass::EndSegment(int& xindx, int& co, int& pstop)
 
 
 /************************************************************//**
- * Process marker from previous row
+ * @brief Process marker from previous row
  *
  * @param[in] prev_marker   Value of MARKER at this position on previous row
  * @param[in] xindx         x-bin position along current row
@@ -293,7 +293,7 @@ void lutzOnePass::ProcessNewMarker(char& prev_marker, int& xindx, int& co, int& 
 
 
 /************************************************************//**
- * Store all of the unfinished objects
+ * @brief Store all of the unfinished objects
  ****************************************************************/
 void lutzOnePass::StoreClearance()
 {
@@ -308,12 +308,12 @@ void lutzOnePass::StoreClearance()
 
 
 /************************************************************//**
- * @brief
+ * @brief Save an object to the list of objects
  ****************************************************************/
 void lutzOnePass::WriteObject(Object& obj)
 {
     if (!obj.empty() && (obj.size() >= m_npixelmin)) {
-        // Create a SmartObject from the supplied object and append it to
+        // Create a lutzObject from the supplied object and append it to
         // the final list of objects
         m_Objects.push_back(lutzObject());
         m_Objects.back().append(obj);
@@ -322,7 +322,7 @@ void lutzOnePass::WriteObject(Object& obj)
 
 
 /************************************************************//**
- * Return value of given pixel
+ * @brief Return value of given pixel
  *
  * @param[in] xbin          x bin of pixel
  * @param[in] ybin          y bin of pixel
@@ -336,7 +336,7 @@ double lutzOnePass::GetPixValue(int xbin, int ybin)
 
 
 /************************************************************//**
- * Assess whether or not this pixel is an image pixel
+ * @brief Assess whether or not this pixel is an image pixel
  *
  * @param[in] xbin          x bin of pixel
  * @param[in] ybin          y bin of pixel
@@ -353,7 +353,7 @@ bool lutzOnePass::AssessPixel(int xbin, int ybin)
 
 
 /************************************************************//**
- * Clear internal data structures and re-allocate memory
+ * @brief Clear internal data structures and re-allocate memory
  ****************************************************************/
 void lutzOnePass::init_members()
 {
@@ -366,17 +366,17 @@ void lutzOnePass::init_members()
     m_INFO.clear();
     m_STORE.clear();
     
-    m_MARKER = std::vector<char>(m_xpix + 1, 0);
+    m_MARKER  = std::vector<char>(m_xpix + 1, 0);
     m_PSSTACK = std::vector<LUTZSTATUS>(m_xpix , COMPLETE);
-    m_START = std::vector<int>(m_xpix , -1);
-    m_END = std::vector<int>(m_xpix , -1);
-    m_INFO = std::vector<Object>(m_xpix , Object(0));
-    m_STORE = std::vector<Object>(m_xpix, Object(0));
+    m_START   = std::vector<int>(m_xpix , -1);
+    m_END     = std::vector<int>(m_xpix , -1);
+    m_INFO    = std::vector<Object>(m_xpix , Object(0));
+    m_STORE   = std::vector<Object>(m_xpix, Object(0));
 }
 
 
 /************************************************************//**
- * Manage the objects related to OBSTACK
+ * @brief Manage the objects related to OBSTACK
  *
  * @param[in] status        Specifies whether to POP or PUSH onto the stack
  * @param[in] co            Current index of OBSTACK
@@ -405,7 +405,7 @@ void lutzOnePass::ModOBSTACK(lutzOnePass::LUTZ_STACK_ACTION status,
 
 
 /************************************************************//**
- * Manage PSSTACK
+ * @brief Manage PSSTACK
  *
  * @param[in] status        Specifies whether to POP or PUSH onto the stack
  * @param[in] pstop         Index corresponding to current entry

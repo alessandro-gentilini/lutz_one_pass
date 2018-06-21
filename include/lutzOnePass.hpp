@@ -120,7 +120,7 @@ private:
 };
 
 /************************************************************//**
- * Set the image values
+ * @brief Set the image values
  *
  * @param[in] image         Vector containing actual data counts
  ****************************************************************/
@@ -131,7 +131,7 @@ inline void lutzOnePass::SetImage(double* image)
 
 
 /************************************************************//**
- * Set the number of pixels in x
+ * @brief Set the number of pixels in x
  *
  * @param[in] xpixels       Number of pixels in x
  ****************************************************************/
@@ -142,7 +142,7 @@ inline void lutzOnePass::SetXpixels(int xpixels)
 
 
 /************************************************************//**
- * Set the number of pixels in y
+ * @brief Set the number of pixels in y
  *
  * @param[in] ypixels       Number of pixels in y
  ****************************************************************/
@@ -153,7 +153,7 @@ inline void lutzOnePass::SetYpixels(int ypixels)
 
 
 /************************************************************//**
- * Set the threshold for considering a pixel as an "image" pixel
+ * @brief Set the threshold for considering a pixel as an "image" pixel
  *
  * @param[in] threshold     Threshold value
  ****************************************************************/
@@ -174,7 +174,7 @@ inline void lutzOnePass::SetNPixelMin(int npixelmin)
 }
 
 /************************************************************//**
- * Return the pixel data associated with a given object
+ * @brief Return the pixel data associated with a given object
  *
  * @param[in] obj_id        Object ID number
  * @return Vector of pixel information for the requested object
@@ -197,7 +197,7 @@ inline std::vector<lutzObject> lutzOnePass::GetObjects(void)
 
 
 /************************************************************//**
- * Return the number of found objects
+ * @brief Return the number of found objects
  *
  * @return Number of objects found in the image
  ****************************************************************/
