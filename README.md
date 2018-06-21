@@ -1,6 +1,6 @@
 # Lutz One Pass
 This repository contains code I've written implementing the Lutz One Pass
-algorithm. 
+algorithm.
 
 ## Downloading the code
 Clone the repository to your local machine:
@@ -23,3 +23,9 @@ make
 ```
 make install
 ```
+
+## Credit
+This algorithm is derived from the following paper:
+* Title: An Algorithm for the Real Time Analysis of Digitised Images
+* Author: R. K. Lutz
+* Journal: Comput J (1980) 23 (3): 262-269
