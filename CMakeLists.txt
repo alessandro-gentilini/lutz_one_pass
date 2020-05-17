@@ -28,6 +28,7 @@ set (CMAKE_CXX_FLAGS "-std=c++11 ${CMake_CXX_FLAGS}")
 
 # Define the sub-directories for building in
 add_subdirectory (src)
+add_subdirectory (test)
 
 #-------------------------------------------
 
